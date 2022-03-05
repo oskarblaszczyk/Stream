@@ -89,6 +89,18 @@ public class Samochod {
 		return najnizszy;
 	}
 
+	public static List<Samochod> starszeNiz(List<Samochod> lista, int wiek) {
+		if (lista == null) {
+			throw new IllegalArgumentException("Lista nie moze byc nullem");
+		}
+		List<Samochod> wynik = new ArrayList<>();
+		for (Samochod s : lista) {
+			if (s.obliczWiek() > wiek) {
+				wynik.add(s);
+			}
+		}
+		return wynik;
+	}
 	//	// napisz metode ktora znajduje wszystkie auta o kolorze niebieskim starsze niz
 	//	// 15 lat
 	//	public static List<Samochod> kolorWiek(List<Samochod> lista, String kolor, int wiek) {
