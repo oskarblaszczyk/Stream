@@ -46,6 +46,7 @@ public class Main {
 		Pracownicy kowalskaAnna = new Pracownicy("Anna", "Kowalska", "HR", "HRBP", s2, 8500 );
 		Pracownicy czajkowskiMateusz = new Pracownicy("Mateusz", "Czajkowski", "RME", "Planer", s5, 8940);
 		
- 
+		Samochod s6 = new Samochod("BMW", "330", 9999, "czarny", 2005, 0);
+		System.out.println(Samochod.najtanszeAuto(Samochod.autaMarki(Samochod.getEkstensja(), "BMW")));
 	}
 }
