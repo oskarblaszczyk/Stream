@@ -13,6 +13,19 @@ public class RowerDzieciecy extends Rower {
 		this.kolaBoczne = kolaBoczne;
 
 		ekstensja.add(this);
+		
+		
 	}
+
+	public boolean isKolaBoczne() {
+		return kolaBoczne;
+	}
+
+	public void setKolaBoczne(boolean kolaBoczne) {
+		this.kolaBoczne = kolaBoczne;
+	}
+
+
+
 
 }

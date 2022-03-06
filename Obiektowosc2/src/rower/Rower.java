@@ -1,5 +1,6 @@
 package rower;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,15 @@ public class Rower {
 		this.rokProdukcji = rokProdukcji;
 		setNrSeryjny(nrSeryjny);
 		ekstensja.add(this);
+	}
+
+	public void dodajWyposazenie(String wyposazenie) {
+		this.wyposazenie.add(wyposazenie);
+	}
+
+	public int wiek() {
+		return LocalDate.now().getYear() - rokProdukcji;
+
 	}
 
 	public List<String> getWyposazenie() {
