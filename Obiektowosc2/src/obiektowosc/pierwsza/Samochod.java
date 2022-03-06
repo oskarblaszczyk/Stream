@@ -135,7 +135,7 @@ public class Samochod {
 		return wynik;
 	}
 
-	public static Samochod PrzebiegDo30k(List<Samochod> lista, int przebieg) {
+	public static List<Samochod> PrzebiegDo30k(List<Samochod> lista, int przebieg) {
 		if (lista == null) {
 			throw new IllegalArgumentException("Lista nie moze byc nullem");
 		}
