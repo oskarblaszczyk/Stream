@@ -13,7 +13,8 @@ public class Szkola {
 
 	//atrybut opcjonalny- przeciazanie konstruktorow
 	private String wyroznienie;
-
+	
+	//atrybut unikalny- dodanie metoda setNumer
 	private int numer;
 
 	//atrybut klasowy
