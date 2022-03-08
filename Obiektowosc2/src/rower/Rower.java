@@ -4,14 +4,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import uml.przyklady.Szkola;
-
 public class Rower {
 	private final String marka;
 	private final String model;
 	private final int rokProdukcji;
 	private int nrSeryjny;
-	private List<String> wyposazenie;
+	private List<String> wyposazenie =  new ArrayList<>();
 	private static int iloscKol = 2;
 
 	private static List<Rower> ekstensja = new ArrayList<>();
@@ -85,7 +83,7 @@ public class Rower {
 
 	@Override
 	public String toString() {
-		return "Rower [marka=" + marka + ", model=" + model + "]";
+		return marka + " " + model;
 	}
 
 }
