@@ -16,6 +16,7 @@ public class Main {
 		RowerDzieciecy rD1 = new RowerDzieciecy("Liv", "Enchant", 2019, 653927391, false);
 		System.out.println(RowerDzieciecy.getEkstensja());
 		System.out.println(Rower.getEkstensja());
+		System.out.println(RowerDzieciecy.getIloscKol());
 		
 	}
 
