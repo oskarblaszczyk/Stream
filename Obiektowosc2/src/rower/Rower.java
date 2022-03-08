@@ -11,7 +11,8 @@ public class Rower {
 	private int nrSeryjny;
 	private List<String> wyposazenie =  new ArrayList<>();
 	private static int iloscKol = 2;
-
+	private Wypozyczalnia wypozyczalnia;
+	
 	private static List<Rower> ekstensja = new ArrayList<>();
 
 	public Rower(String marka, String model, int rokProdukcji, int nrSeryjny) {
@@ -70,6 +71,17 @@ public class Rower {
 
 	public int getNrSeryjny() {
 		return nrSeryjny;
+	}
+	
+	
+
+	public Wypozyczalnia getWypozyczalnia() {
+		return wypozyczalnia;
+	}
+	
+
+	public void setWypozyczalnia(Wypozyczalnia wypozyczalnia) {
+		this.wypozyczalnia = wypozyczalnia;
 	}
 
 	public void setNrSeryjny(int nrSeryjny) {

@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Klient {
-	private final String imie;
-	private final String nazwisko;
+	private String imie;
+	private String nazwisko;
 	private int id;
-	
+	private List<Wypozyczalnia> wypozyczalnia;
+
 	private static List<Klient> ekstensja = new ArrayList<>();
 
 	public Klient(String imie, String nazwisko, int id) {
@@ -22,7 +23,6 @@ public class Klient {
 		return ekstensja;
 	}
 
-
 	public String getImie() {
 		return imie;
 	}
@@ -34,7 +34,14 @@ public class Klient {
 	public int getId() {
 		return id;
 	}
-	
-	
-	
+
+	public List<Wypozyczalnia> getWypozyczalnia() {
+		return wypozyczalnia;
+	}
+
+	@Override
+	public String toString() {
+		return "Klient [imie=" + imie + "]";
+	}
+
 }

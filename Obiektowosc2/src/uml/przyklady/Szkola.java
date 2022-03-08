@@ -13,7 +13,7 @@ public class Szkola {
 
 	//atrybut opcjonalny- przeciazanie konstruktorow
 	private String wyroznienie;
-	
+
 	//atrybut unikalny- dodanie metoda setNumer
 	private int numer;
 
@@ -21,6 +21,8 @@ public class Szkola {
 	private static int minLiczbaUczniow = 150;
 
 	private static List<Szkola> ekstensja = new ArrayList<>();
+
+	private List<Uczen> uczniowie = new ArrayList<>();
 
 	public Szkola(String nazwa, LocalDate dataWybudowania, int numer, String wyroznienie) {
 		this.nazwa = nazwa;
@@ -37,6 +39,21 @@ public class Szkola {
 		setNumer(numer);
 
 		ekstensja.add(this);
+	}
+
+	public void dodajUcznia(Uczen u) {
+		
+		if(u.getSzkola() != null) {
+			throw new IllegalArgumentException("Uczen ma juz szkle");
+		}
+		
+		uczniowie.add(u);
+		//WAZNE informacja zwrotna
+		u.setSzkola(this);
+	}
+
+	public void usunUcznia(Uczen u) {
+		uczniowie.remove(u);
 	}
 
 	//atrybut wyliczalny
@@ -74,6 +91,10 @@ public class Szkola {
 
 	public List<String> getProfile() {
 		return profile;
+	}
+
+	public List<Uczen> getUczniowie() {
+		return uczniowie;
 	}
 
 	public void setProfile(List<String> profile) {
