@@ -65,6 +65,28 @@ public class Main {
 		System.out.println(pattern7.matcher("Tommmmmek").matches());
 		System.out.println(pattern7.matcher("Tommmmmmek").matches());
 		
+	 /*
+        klasy - grupy symboli, oznaczane za pomoca nawiasow [ ] 
+        [A-E] - jakakolwiek wielka litera od A do E
+        [h-u] - jakakolwiek mala literka od h do u
+        [A-Cg-z] - jakakolwiek wielka litera od A do C lub mala od go do z
+        [H-g] - jajakolwiek wielka litera od H do Z lub od a do g
+        [3-8] - jakakolwiek licba od 3 do 8
+        [^a-c] - cokolwiek poza przedzialem od a do c
+     */
 		
+		// stwórz pattern na imie
+		// Bartek
+		// Bartek Tomek
+		
+		Pattern pattern8 = Pattern.compile("[A-Z][a-z]{2,}( [A-Z][a-z]{2,})?");
+		
+		// stwórz pattern na imie i nazwisko
+		// Jan Korwin
+		// Jan Korwin-Mikke
+		// Jan Korwin Mikke
+		// (a|b) a lub b
+		
+		Pattern pattern9 = Pattern.compile("[A-Z][a-z]{2,}( [A-Z][a-z]{2,})-(-[A-Z][a-z]{2,})?( [A-Z][a-z]{2,})?"); //zle
 	}
 }
