@@ -1,3 +1,6 @@
+//kompozycja - cos nie moze istniec bez czegos
+//agregacja - 
+
 package uml.przyklady;
 
 import java.time.LocalDate;
@@ -24,6 +27,8 @@ public class Szkola {
 
 	private List<Uczen> uczniowie = new ArrayList<>();
 
+	private List<Sala> sale = new ArrayList<>();
+
 	public Szkola(String nazwa, LocalDate dataWybudowania, int numer, String wyroznienie) {
 		this.nazwa = nazwa;
 		this.dataWybudowania = dataWybudowania;
@@ -42,11 +47,11 @@ public class Szkola {
 	}
 
 	public void dodajUcznia(Uczen u) {
-		
-		if(u.getSzkola() != null) {
+
+		if (u.getSzkola() != null) {
 			throw new IllegalArgumentException("Uczen ma juz szkle");
 		}
-		
+
 		uczniowie.add(u);
 		//WAZNE informacja zwrotna
 		u.setSzkola(this);
@@ -111,6 +116,10 @@ public class Szkola {
 
 	public int getNumer() {
 		return numer;
+	}
+
+	public List<Sala> getSale() {
+		return sale;
 	}
 
 	public void setNumer(int numer) {
