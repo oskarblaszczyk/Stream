@@ -87,6 +87,6 @@ public class Main {
 		// Jan Korwin Mikke
 		// (a|b) a lub b
 		
-		Pattern pattern9 = Pattern.compile("[A-Z][a-z]{2,}( [A-Z][a-z]{2,})-(-[A-Z][a-z]{2,})?( [A-Z][a-z]{2,})?"); //zle
+		Pattern pattern9 = Pattern.compile("[A-Z][a-z]{2,}( [A-Z][a-z]{2,})(-? ?[A-Z][a-z]{2,})?"); //zle- poprawione
 	}
 }

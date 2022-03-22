@@ -1,25 +1,13 @@
 package zadanie.pracownik.klient;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
+
 
 public class Produkt {
 	private String nazwa;
 	private double cena;
 	private List<Klient> klienci = new ArrayList<>();
-	// Zadanie nie wymaga dzialan na produktach wiec wybralem
-	// najprostsza (?) Liste. Rozsadnie by bylo korzystac z Mapy- rozwojowo.
-
-	// private Set<Klient> klienci2 = new HashSet<>();
-	// Set klientow ktorzy kiedykolwiek zakupili dany produkt, brak powtorzen
-
-	// private Map<Klient, Integer> klienci3 = new HashMap<>();
-	// Mapa klientow ktorzy kiedykolwiek zakupili produkt (klucz) oraz ilosc
-	// kupionych produktow.
 
 	private static List<Produkt> ekstensja = new ArrayList<>();
 

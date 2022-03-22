@@ -1,21 +1,40 @@
 package zadanie.pracownik.klient;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
 public class WyjazdAutem {
+	private Pracownik pracownik;
+	private Samochod samochod;
 	private LocalDate dataWyjazdu;
 	private LocalDate dataPowrotu;
-	private Samochod samochod;
-	private Pracownik pracownik;
 
 	private static List<WyjazdAutem> ekstensja = new ArrayList<>();
 
-	public WyjazdAutem(LocalDate dataWyjazdu, LocalDate dataPowrotu) {
-		super();
+	public WyjazdAutem(Pracownik pracownik, Samochod samochod, LocalDate dataWyjazdu, LocalDate dataPowrotu) {
+		if (pracownik == null || samochod == null) {
+			throw new IllegalArgumentException("pracownik oraz samochod nie moga byc null");
+		}
+		for (WyjazdAutem w : samochod.getWyjazdy()) {
+			if (Period.between(w.getDataPowrotu(), dataWyjazdu).isNegative()) {
+				throw new IllegalArgumentException("Data wyjazdu nie moze byc wczesniejsza niz powrot z innego wyjazdu");
+			}
+		}
+		for(WyjazdAutem w : pracownik.getWyjazdy()) {
+			if(Period.between(w.getDataPowrotu(), dataWyjazdu).isNegative()) {
+				throw new IllegalArgumentException("Data wyjazdu nie moze byc wczesniejsza niz powrot z innego wyjazdu");	
+			}
+		}
+		this.pracownik = pracownik;
+		this.samochod = samochod;
 		this.dataWyjazdu = dataWyjazdu;
 		this.dataPowrotu = dataPowrotu;
+
+		ekstensja.add(this);
+		pracownik.getWyjazdy().add(this);
+		samochod.getWyjazdy().add(this);
 	}
 
 	public LocalDate getDataWyjazdu() {

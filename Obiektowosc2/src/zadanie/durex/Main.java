@@ -45,7 +45,7 @@ public class Main {
 
 		System.out.println(Zakup.najdrozszeZakupy(Zakup.getEkstensja()));
 		System.out.println(Zakup.kupioneDurex(Zakup.getEkstensja()));
-		System.out.println(Zakup.zlyRozmiar(Zakup.getEkstensja()));
+		System.out.println(Zakup.zlyRozmiar(Zakup.kupioneDurex(Zakup.getEkstensja())));
 
 		//System.out.println(Klient.getEkstensja());
 		//System.out.println(Produkt.getEkstensja());

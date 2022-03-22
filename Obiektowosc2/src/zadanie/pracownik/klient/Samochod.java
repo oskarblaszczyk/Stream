@@ -7,7 +7,8 @@ public class Samochod {
 
 	private String model;
 	private String marka;
-
+	private List<WyjazdAutem> wyjazdy = new ArrayList<>();
+	
 	private static List<Samochod> ekstensja = new ArrayList<>();
 
 	public Samochod(String model, String marka) {
@@ -36,6 +37,10 @@ public class Samochod {
 
 	public static List<Samochod> getEkstensja() {
 		return ekstensja;
+	}
+
+	public List<WyjazdAutem> getWyjazdy() {
+		return wyjazdy;
 	}
 
 	@Override

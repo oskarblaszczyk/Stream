@@ -13,8 +13,8 @@
 
 package zadanie.pracownik.klient;
 
+import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.List;
 
 public class Main {
 	public static void main(String[] args) {
@@ -32,12 +32,50 @@ public class Main {
 		k2.kupProdukt(Arrays.asList(p1, p2, p3, p2, p1, p1));
 		k3.kupProdukt(Arrays.asList(p2, p2, p3, p1, p1, p3, p3));
 
-		System.out.println("Wydal najwiecej: " + Klient.najwiecejWydal(Klient.getEkstensja()));
+		System.out.println("Wydal najwiecej: " + Klient.najwiecejWydal());
+		System.out.println("i wydal: " + Klient.najwiecejWydal().wartoscZakupow());
 
+		System.out.println();
+
+		System.out.println();
 		for (Klient k : Klient.getEkstensja()) {
 			System.out.println("Ulubiony produkt dla " + k + " to: " + k.ulubionyProdukt().getNazwa());
 		}
 
+		Pracownik pr1 = new Pracownik("Adam", "Jankowski", "Wroclaw", 4800);
+		Pracownik pr2 = new Pracownik("Bartosz", "Kita", "Olesnica", 3950);
+		Pracownik pr3 = new Pracownik("Alicja", "Nowak", "Jelenia Gora", 5410);
+		Pracownik pr4 = new Pracownik("Barbara", "Kowalska", "Kowary", 1899);
+
+		Samochod s1 = new Samochod("aa4", "audi");
+		Samochod s2 = new Samochod("corolla", "toyota");
+		Samochod s3 = new Samochod("330", "bmw");
+
+		WyjazdAutem w1 = new WyjazdAutem(pr1, s1, LocalDate.parse("2022-03-13"), LocalDate.parse("2022-03-15"));
+		WyjazdAutem w2 = new WyjazdAutem(pr2, s2, LocalDate.parse("2022-03-13"), LocalDate.parse("2022-03-15"));
+		WyjazdAutem w3 = new WyjazdAutem(pr3, s3, LocalDate.parse("2022-03-13"), LocalDate.parse("2022-03-15"));
+		WyjazdAutem w4 = new WyjazdAutem(pr1, s1, LocalDate.parse("2022-03-17"), LocalDate.parse("2022-03-20"));
+		WyjazdAutem w5 = new WyjazdAutem(pr2, s2, LocalDate.parse("2022-03-17"), LocalDate.parse("2022-03-20"));
+		WyjazdAutem w6 = new WyjazdAutem(pr3, s3, LocalDate.parse("2022-03-17"), LocalDate.parse("2022-03-20"));
+		WyjazdAutem w7 = new WyjazdAutem(pr1, s1, LocalDate.parse("2022-03-21"), LocalDate.parse("2022-03-25"));
+		WyjazdAutem w8 = new WyjazdAutem(pr2, s2, LocalDate.parse("2022-03-21"), LocalDate.parse("2022-03-22"));
+		WyjazdAutem w9 = new WyjazdAutem(pr3, s3, LocalDate.parse("2022-03-21"), LocalDate.parse("2022-03-24"));
+
+		System.out.println();
+		System.out.println("TOP 3 najlepszych pracownikow to: " + Pracownik.pracownicyTop3());
+
+//		System.out.println(pr1.ileWyjazdow());
+//		System.out.println(pr1.ileWyjazdow(s1));
+//		System.out.println(pr1 + " mial: " + pr1.ileWyjazdow() + " wyjazdy i trwaly one razem: " + pr1.dlugoscWyjazdow().getDays() + " dni");
+//		System.out.println("wyjazd " + w1 + " dla " + pr1 + " to: " + pr1.dlugoscWyjazdu(w1).getDays() + " dni");
+//		
+		System.out.println();
+		for(Pracownik p : Pracownik.getEkstensja()) {
+			for(Samochod s : Samochod.getEkstensja()) {
+				System.out.println("Pracownik " + p + " uzywal auta " + s + " " +  p.ileWyjazdow(s) + " razy i bylo to w sumie: " + p.dlugoscWyjazduAuto(s).getDays() + " dni" );
+			}
+		}
+		System.out.println();
 	}
 
 }

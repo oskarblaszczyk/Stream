@@ -2,26 +2,13 @@ package zadanie.pracownik.klient;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Objects;
 
-public class Klient {
+public class Klient implements Comparable<Klient> {
 	private String imie;
 	private String nazwisko;
-	// private List<Produkt> produkty = new ArrayList<>();
-	// wszystkie produkty najedna liste, kupione w kilku egzemplarzach sa dodawane
-	// kilkukrotnie. koniecznosc uzycia dodatkowej zmiennej aby zliczyc sume (przy
-	// dodawaniu produktu lub przy wyolaniu w petli) liczenie ulubionego produktu?
-	private Map<Produkt, Integer> produkty = new HashMap<>();
-	// produkty
-	// dodawane do listy (klucz) o wartosci 1, w
-	// przypadku kolejnej sztuki zakupionej wartosc sie
-	// sumuje.
-	// na plus jest pozniejsze znalezienie ulubionego
-	// produktu- max wartosc z Mapy. Rowniez suma zakupow
-	// latwo do obliczenia
-
+	private List<Produkt> produkty = new ArrayList<>();
 	private static List<Klient> ekstensja = new ArrayList<>();
 
 	public Klient(String imie, String nazwisko) {
@@ -30,34 +17,53 @@ public class Klient {
 		ekstensja.add(this);
 	}
 
+	// 	Tym sposobem w przypadku braku zakupow otrzymuje klienta z indeksu 0
+	//	Wykorzystany w kolejnej metodzie interface comparable i sortowanie listy wedlug kwoty zakupow calkowitych.
+	//	DO POPRAWY- zostawione dla przykladu
 	public static Klient najwiecejWydal(List<Klient> klient) {
 		if (klient == null || klient.isEmpty()) {
 			throw new IllegalArgumentException("lista nie moze  byc null i pusta");
 		}
-		Klient wynik = klient.get(0);
+		Klient najwiecej = klient.get(0);
 		for (Klient k : klient) {
-			if (k.wartoscZakupow() > wynik.wartoscZakupow()) {
-				wynik = k;
+			if (k.wartoscZakupow() > najwiecej.wartoscZakupow()) {
+				najwiecej = k;
 			}
 		}
-		return wynik;
+		return najwiecej;
 	}
 
-	public double wartoscZakupow() {
+	// sortowanie- comparator + wskazanie ostatniego elementu listy- klient z
+	// najwiekszymi zakupami.
+	public static Klient najwiecejWydal() {
+		if (ekstensja == null) {
+			throw new IllegalArgumentException("nie moze byc nullem");
+		}
+		List<Klient> wynik = new ArrayList<>();
+		wynik.addAll(ekstensja);
+		Collections.sort(wynik);
+		return wynik.get(wynik.size() - 1);
+	}
+
+	// obliczenie wartosci zakupow dla konkretnego klienta
+	public Double wartoscZakupow() {
+		if (produkty == null) {
+			throw new IllegalArgumentException("Klient jeszcze nic nie kupil");
+		}
 		double suma = 0;
-		for (Produkt p : produkty.keySet()) {
-			suma += p.getCena() * produkty.get(p);
+		for (Produkt p : produkty) {
+			suma += p.getCena() * iloscProduktu(p);
 		}
 		return suma;
 	}
 
+	// obliczenie najczesciej (najwieksza ilosc razy) kupionego produktu
 	public Produkt ulubionyProdukt() {
 		int ilosc = 0;
-		// Produkt ulubiony = Produkt.getEkstensja().get(0); 
-		Produkt ulubiony = null; // czy to jest poprawne? zwracamy null w przypadku braku kupionych produktow. opcja wyzej mozliwosc wskazania niekupionego produktu
-		for (Produkt p : produkty.keySet()) {
-			if (produkty.get(p) > ilosc) {
-				ilosc = produkty.get(p);
+		Produkt ulubiony = null; // czy to jest poprawne? zwracamy null w przypadku braku kupionych produktow.
+		for (Produkt p : produkty) {
+			if (iloscProduktu(p) > ilosc) {
+				ilosc = iloscProduktu(p);
 				ulubiony = p;
 			}
 		}
@@ -65,17 +71,27 @@ public class Klient {
 
 	}
 
-	public void kupProdukt(Produkt produkt) {
-		produkty.put(produkt, produkty.getOrDefault(produkt, 0) + 1);
-
-		produkt.getKlienci().add(this); // Lista
-		// produkt.getKlienci2().add(this); // Set
-		// produkt.getKlienci3().put(this, produkt.getKlienci3().getOrDefault(produkt, 0) + 1); // Mapa
+	// liczenie kupionej ilosci konkretnego produktu przez klienta
+	private int iloscProduktu(Produkt produkt) {
+		int ilosc = 0;
+		for (Produkt p : produkty) {
+			if (p.equals(produkt)) {
+				ilosc++;
+			}
+		}
+		return ilosc;
 	}
 
+	// dodawanie produktu
+	public void kupProdukt(Produkt produkt) {
+		produkty.add(produkt);
+		produkt.getKlienci().add(this);
+	}
+
+	// dodawanie listy produktow
 	public void kupProdukt(List<Produkt> produkty) {
 		for (Produkt p : produkty) {
-			this.produkty.put(p, this.produkty.getOrDefault(p, 0) + 1);
+			this.produkty.add(p);
 			p.getKlienci().add(this);
 		}
 	}
@@ -96,7 +112,7 @@ public class Klient {
 		this.nazwisko = nazwisko;
 	}
 
-	public Map<Produkt, Integer> getProdukty() {
+	public List<Produkt> getProdukty() {
 		return produkty;
 	}
 
@@ -107,6 +123,30 @@ public class Klient {
 	@Override
 	public String toString() {
 		return imie + " " + nazwisko;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(imie, nazwisko, produkty);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Klient other = (Klient) obj;
+		return Objects.equals(imie, other.imie) && Objects.equals(nazwisko, other.nazwisko)
+				&& Objects.equals(produkty, other.produkty);
+	}
+
+	@Override
+	public int compareTo(Klient o) {
+		int kwotaZakupow = this.wartoscZakupow().compareTo(o.wartoscZakupow());
+		return kwotaZakupow;
 	}
 
 }
