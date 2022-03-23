@@ -39,8 +39,7 @@ public class Klient implements Comparable<Klient> {
 		if (ekstensja == null) {
 			throw new IllegalArgumentException("nie moze byc nullem");
 		}
-		List<Klient> wynik = new ArrayList<>();
-		wynik.addAll(ekstensja);
+		List<Klient> wynik = new ArrayList<>(ekstensja);
 		Collections.sort(wynik);
 		return wynik.get(wynik.size() - 1);
 	}
@@ -52,7 +51,7 @@ public class Klient implements Comparable<Klient> {
 		}
 		double suma = 0;
 		for (Produkt p : produkty) {
-			suma += p.getCena() * iloscProduktu(p);
+			suma += p.getCena();
 		}
 		return suma;
 	}
@@ -62,8 +61,9 @@ public class Klient implements Comparable<Klient> {
 		int ilosc = 0;
 		Produkt ulubiony = null; // czy to jest poprawne? zwracamy null w przypadku braku kupionych produktow.
 		for (Produkt p : produkty) {
-			if (iloscProduktu(p) > ilosc) {
-				ilosc = iloscProduktu(p);
+			int iloscPr = iloscProduktu(p);
+			if (iloscPr > ilosc) {
+				ilosc = iloscPr;
 				ulubiony = p;
 			}
 		}

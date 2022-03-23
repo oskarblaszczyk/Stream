@@ -18,6 +18,41 @@
 		 * -i wyswietl wszystkie te dzieci wczytane z pliku na JLiscie
 		 */
 
+
+		/*
+		 *  W systemie przechowujemy informacje o zwierzetach (nazwa, gatunek). Dla psów przechowujemy dodatkowe ich dlugosc siersci 
+			oraz ulubione zabawki ,dla kotów stopien bycia wkurwiajacym futrzakiem (1-10) oraz dla pterodaktylow rozpietosc skrzydel.
+			
+			Trenerzy (imie, nazwisko, adres) trenuja zwierzeta. Kazdy trener trenuje wiele zwierzat, ale zwierze jest pod okiem jednego trenera.
+			
+			Trener uzywa Sprzetu (nazwa, stopien zuzycia(nowe, uzywane, tragiczne)), sprzet moze byc naprawiany.
+			 Chcemy przechowywac informacje o tym jaki trener uzywal kiedy
+			jkaiego sprzetu. Sprzet przez trenera moze byc uzywany wielokrotnie. 
+		
+		
+			-znajdz trenera ktory trenowa³ najwiecej zwierzat
+			-znajdz trenera ktory uzywa³ jakiegos sprzetu najwieksza liczbe razy
+			-znajdz trenerow ktorzy trenowali psy z gatunku spaniel
+			-znajdz wszystkie sprzety które byly naprawiane co najmniej 2 razy
+			-znajdz wszystkie pterodaktyle ktore nigdy nie mialy przypisanego trenera
+		 */
+
+	/*
+		 * Ok to masz graczy ktorzy graja w turniejach. Turniej ma nazwe i miesiac. Gracz ma imie i nazwisko. 
+		 * 
+ 
+			
+			1) chcemy przechowywac dla kazdego gracza jakie pozycje zajmowal w jakim turnieju
+			
+			2) tak samo punkty jakie zdobyl z dnaego turnieju
+			
+			3) znajdz gracsa ktory byl najlepeszt w turniejach o danej nazwie, jesli nie ma to rzuc wyjatkiem  
+			
+			4) znajdz gracza ktory zodbyl najwiecej 1 miejsc ze wszystkich turniejow 
+			
+			5) znajdz gracza ktory ma najwyzsyz ranking z turrniejow ale nigdycnie mial 1 miejsca
+		 */
+
 package zadanie.przedszkole;
 
 import java.io.FileWriter;

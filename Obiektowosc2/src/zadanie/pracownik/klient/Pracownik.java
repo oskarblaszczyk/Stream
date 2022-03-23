@@ -3,6 +3,7 @@ package zadanie.pracownik.klient;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -27,48 +28,41 @@ public class Pracownik implements Comparable<Pracownik> {
 	}
 
 	// Top 3 pracownikow dla przekazanej listy
-	public static List<Pracownik> pracownicyTop3(List<Pracownik> pracownicy) {
+	public static List<Pracownik> pracownicyTop(List<Pracownik> pracownicy, int n) {
+		// if n>pracownicy size
 		if (pracownicy == null) {
 			throw new IllegalArgumentException("Lista pracownicy nie moze byc nullem");
 		}
-		List<Pracownik> top3 = new ArrayList<>();
-		top3.addAll(pracownicy);
-		Collections.sort(top3);
-		Collections.reverse(top3);
-		return top3.subList(0, 3);
+		List<Pracownik> topN = new ArrayList<>(pracownicy);	 
+		Collections.sort(topN, Comparator.reverseOrder());	 
+		return topN.subList(0, n);
 	}
-
-	// Top3 pracownikow dla calej Klasy
-	public static List<Pracownik> pracownicyTop3() {
-		List<Pracownik> top3 = new ArrayList<>();
-		if(ekstensja.isEmpty()) {
-			throw new IllegalArgumentException("Brak dodanych pracownikow");
-		}
-		if(ekstensja.size() < 3) {
-			throw new IllegalArgumentException("za malo dodanych pracownikow");
-		}
-		top3.addAll(ekstensja);
-		Collections.sort(top3);
-		Collections.reverse(top3);
-		return top3.subList(0, 3);
-	}
+//
+//	// Top3 pracownikow dla calej Klasy
+//	public static List<Pracownik> pracownicyTop3() {
+//		List<Pracownik> top3 = new ArrayList<>();
+//		if(ekstensja.isEmpty()) {
+//			throw new IllegalArgumentException("Brak dodanych pracownikow");
+//		}
+//		if(ekstensja.size() < 3) {
+//			throw new IllegalArgumentException("za malo dodanych pracownikow");
+//		}
+//		top3.addAll(ekstensja);
+//		Collections.sort(top3);
+//		Collections.reverse(top3);
+//		return top3.subList(0, 3);
+//	}
 
 	// Ilosc wyjazdow pracownika wszystkimi samochodami
-	public int ileWyjazdow() {
-		int ilosc = 0;
-		for (WyjazdAutem w : WyjazdAutem.getEkstensja()) {
-			if (w.getPracownik().equals(this)) {
-				ilosc++;
-			}
-		}
-		return ilosc;
+	public int ileWyjazdow() {		 
+		return wyjazdy.size();
 	}
 
 	// ilosc wyjazdow pracownika konkretnym samochodem
 	public int ileWyjazdow(Samochod samochod) {
 		int ilosc = 0;
-		for (WyjazdAutem w : WyjazdAutem.getEkstensja()) {
-			if (w.getPracownik().equals(this) && w.getSamochod().equals(samochod)) {
+		for (WyjazdAutem w : wyjazdy) {
+			if (w.getSamochod().equals(samochod)) {
 				ilosc++;
 			}
 		}
@@ -77,6 +71,8 @@ public class Pracownik implements Comparable<Pracownik> {
 
 	// dugosc wszystkich wyjazdow dla pracownika
 	public Period dlugoscWyjazdow() {
+		
+		// chroniunit + metoda beetwen
 		Period suma = Period.ZERO;
 		for (WyjazdAutem w : wyjazdy) {
 			suma = suma.plus(dlugoscWyjazdu(w));

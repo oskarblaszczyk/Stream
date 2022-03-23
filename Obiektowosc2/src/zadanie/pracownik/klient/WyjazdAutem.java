@@ -17,16 +17,19 @@ public class WyjazdAutem {
 		if (pracownik == null || samochod == null) {
 			throw new IllegalArgumentException("pracownik oraz samochod nie moga byc null");
 		}
-		for (WyjazdAutem w : samochod.getWyjazdy()) {
-			if (Period.between(w.getDataPowrotu(), dataWyjazdu).isNegative()) {
-				throw new IllegalArgumentException("Data wyjazdu nie moze byc wczesniejsza niz powrot z innego wyjazdu");
-			}
+		if(dataWyjazdu.isAfter(dataPowrotu)) {
+			//wyjatek
 		}
-		for(WyjazdAutem w : pracownik.getWyjazdy()) {
-			if(Period.between(w.getDataPowrotu(), dataWyjazdu).isNegative()) {
-				throw new IllegalArgumentException("Data wyjazdu nie moze byc wczesniejsza niz powrot z innego wyjazdu");	
-			}
-		}
+//		for (WyjazdAutem w : samochod.getWyjazdy()) {
+//			if (Period.between(w.getDataPowrotu(), dataWyjazdu).isNegative()) {
+//				throw new IllegalArgumentException("Data wyjazdu nie moze byc wczesniejsza niz powrot z innego wyjazdu");
+//			}
+//		}
+//		for(WyjazdAutem w : pracownik.getWyjazdy()) {
+//			if(Period.between(w.getDataPowrotu(), dataWyjazdu).isNegative()) {
+//				throw new IllegalArgumentException("Data wyjazdu nie moze byc wczesniejsza niz powrot z innego wyjazdu");	
+//			}
+//		}
 		this.pracownik = pracownik;
 		this.samochod = samochod;
 		this.dataWyjazdu = dataWyjazdu;
