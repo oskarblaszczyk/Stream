@@ -1,20 +1,19 @@
 package zadanie.zwierzyniec;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Pies extends Zwierze {
 	private String dlugoscSiersci;
 	private List<String> ulubionaZabawka;
 
-	private static List<Pies> ekstensja = new ArrayList<>();
+	//private static List<Pies> ekstensja = new ArrayList<>();
 
 	public Pies(String nazwa, String gatunek, String dlugoscSiersci) {
 		super(nazwa, gatunek);
 		this.dlugoscSiersci = dlugoscSiersci;
 
-		ekstensja.add(this);
+		//ekstensja.add(this);
+		Zwierze.getEkstensja().add(this);
 	}
 
 	public String getDlugoscSiersci() {
@@ -33,9 +32,30 @@ public class Pies extends Zwierze {
 		this.ulubionaZabawka = ulubionaZabawka;
 	}
 
-	public static List<Pies> getEkstensja() {
-		return ekstensja;
-	}
+//	public static List<Pies> getEkstensja() {
+//		return ekstensja;
+//	}
+
+//	@Override
+//	public int hashCode() {
+//		final int prime = 31;
+//		int result = super.hashCode();
+//		result = prime * result + Objects.hash(dlugoscSiersci, ulubionaZabawka);
+//		return result;
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (!super.equals(obj))
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Pies other = (Pies) obj;
+//		return Objects.equals(dlugoscSiersci, other.dlugoscSiersci)
+//				&& Objects.equals(ulubionaZabawka, other.ulubionaZabawka);
+//	}
 
 	
 }

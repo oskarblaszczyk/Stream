@@ -3,13 +3,12 @@ package zadanie.zwierzyniec;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Sprzet {
 	private String nazwa;
 	private String stopienZuzycia; //dla uproszczenia String bez kontroli podaneo argumentu
-	private List<LocalDate> dataNaprawy;
-	private List<UzytkowanieSprzetu> uzycia;
+	private List<LocalDate> dataNaprawy = new ArrayList<>();
+	private List<UzytkowanieSprzetu> uzycia = new ArrayList<>();
 
 	private static List<Sprzet> ekstensja = new ArrayList<>();
 
@@ -30,7 +29,7 @@ public class Sprzet {
 		}
 	}
 
-	private static List<Sprzet> naprawianyNRazy(List<Sprzet> sprzet, int n) {
+	public static List<Sprzet> naprawianyNRazy(List<Sprzet> sprzet, int n) {
 		if (sprzet == null) {
 			throw new IllegalArgumentException("Lista nie moze byc null");
 		}
@@ -84,22 +83,22 @@ public class Sprzet {
 		return "Sprzet [nazwa=" + nazwa + "]";
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(dataNaprawy, nazwa, stopienZuzycia, uzycia);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Sprzet other = (Sprzet) obj;
-		return Objects.equals(dataNaprawy, other.dataNaprawy) && Objects.equals(nazwa, other.nazwa)
-				&& Objects.equals(stopienZuzycia, other.stopienZuzycia) && Objects.equals(uzycia, other.uzycia);
-	}
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(dataNaprawy, nazwa, stopienZuzycia, uzycia);
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Sprzet other = (Sprzet) obj;
+//		return Objects.equals(dataNaprawy, other.dataNaprawy) && Objects.equals(nazwa, other.nazwa)
+//				&& Objects.equals(stopienZuzycia, other.stopienZuzycia) && Objects.equals(uzycia, other.uzycia);
+//	}
 
 }

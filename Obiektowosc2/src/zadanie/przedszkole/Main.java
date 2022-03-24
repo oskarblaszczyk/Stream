@@ -63,8 +63,8 @@ import java.util.Arrays;
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-		Wychowawca w1 = new Wychowawca("Jan", "Kowalski", LocalDate.of(1980, 12, 04), Kwalifikacje.tymczasowy);
-		Wychowawca w2 = new Wychowawca("Ania", "Nowak", LocalDate.of(1985, 01, 30), Kwalifikacje.kwalifikowany);
+		Wychowawca w1 = new Wychowawca("Jan", "Kowalski", LocalDate.of(1980, 12, 04), Kwalifikacje.TYMCZASOWY);
+		Wychowawca w2 = new Wychowawca("Ania", "Nowak", LocalDate.of(1985, 01, 30), Kwalifikacje.KWALIFIKOWANY);
 
 		Dziecko d1 = new Dziecko("Basia", "Konieczna", LocalDate.of(2018, 5, 5), null);
 		Dziecko d2 = new Dziecko("Ania", "Konieczna", LocalDate.of(2018, 5, 5), null);

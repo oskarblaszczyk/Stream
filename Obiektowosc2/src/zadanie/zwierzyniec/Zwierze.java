@@ -10,6 +10,8 @@ public abstract class Zwierze {
 	private String gatunek;
 	private Trener trener;
 
+	private static List<Zwierze> ekstensja = new ArrayList<>();
+	
 	public Zwierze(String nazwa, String gatunek) {
 		super();
 		this.nazwa = nazwa;
@@ -49,28 +51,33 @@ public abstract class Zwierze {
 	public void setTrener(Trener trener) {
 		this.trener = trener;
 	}
+	
+
+	public static List<Zwierze> getEkstensja() {
+		return ekstensja;
+	}
 
 	@Override
 	public String toString() {
 		return "Zwierze [nazwa=" + nazwa + ", gatunek=" + gatunek + "]";
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(gatunek, nazwa, trener);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Zwierze other = (Zwierze) obj;
-		return Objects.equals(gatunek, other.gatunek) && Objects.equals(nazwa, other.nazwa)
-				&& Objects.equals(trener, other.trener);
-	}
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(gatunek, nazwa, trener);
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Zwierze other = (Zwierze) obj;
+//		return Objects.equals(gatunek, other.gatunek) && Objects.equals(nazwa, other.nazwa)
+//				&& Objects.equals(trener, other.trener);
+//	}
 
 }

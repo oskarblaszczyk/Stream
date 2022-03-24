@@ -1,18 +1,16 @@
 package zadanie.zwierzyniec;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Kot extends Zwierze {
 	private int jakBardzoWkurwiajacy;
 
-	private static List<Kot> ekstensja = new ArrayList<>();
+	//private static List<Kot> ekstensja = new ArrayList<>();
 
 	public Kot(String nazwa, String gatunek, int jakBardzoWkurwiajacy) {
 		super(nazwa, gatunek);
 		setJakBardzoWkurwiajacy(jakBardzoWkurwiajacy);
 		
-		ekstensja.add(this);
+		//ekstensja.add(this);
+		Zwierze.getEkstensja().add(this);
 	}
 
 	public int getJakBardzoWkurwiajacy() {
@@ -26,8 +24,8 @@ public class Kot extends Zwierze {
 		this.jakBardzoWkurwiajacy = jakBardzoWkurwiajacy;
 	}
 
-	public static List<Kot> getEkstensja() {
-		return ekstensja;
-	}
+//	public static List<Kot> getEkstensja() {
+//		return ekstensja;
+//	}
 
 }

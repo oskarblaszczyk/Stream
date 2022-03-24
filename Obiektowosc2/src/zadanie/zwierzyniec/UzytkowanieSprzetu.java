@@ -3,7 +3,6 @@ package zadanie.zwierzyniec;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class UzytkowanieSprzetu {
 
@@ -14,7 +13,9 @@ public class UzytkowanieSprzetu {
 	private static List<UzytkowanieSprzetu> ekstensja = new ArrayList<>();
 
 	public UzytkowanieSprzetu(LocalDate dataUzycia, Sprzet sprzet, Trener trener) {
-		super();
+		if(sprzet.getStopienZuzycia().equals("tragiczny")) {
+			throw new IllegalArgumentException("sprzet zuzyty- napraw go");
+		}
 		this.dataUzycia = dataUzycia;
 		this.sprzet = sprzet;
 		this.trener = trener;
@@ -57,22 +58,22 @@ public class UzytkowanieSprzetu {
 		return "UzytkowanieSprzetu [dataUzycia=" + dataUzycia + ", sprzet=" + sprzet + ", trener=" + trener + "]";
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(dataUzycia, sprzet, trener);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UzytkowanieSprzetu other = (UzytkowanieSprzetu) obj;
-		return Objects.equals(dataUzycia, other.dataUzycia) && Objects.equals(sprzet, other.sprzet)
-				&& Objects.equals(trener, other.trener);
-	}
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(dataUzycia, sprzet, trener);
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		UzytkowanieSprzetu other = (UzytkowanieSprzetu) obj;
+//		return Objects.equals(dataUzycia, other.dataUzycia) && Objects.equals(sprzet, other.sprzet)
+//				&& Objects.equals(trener, other.trener);
+//	}
 
 }

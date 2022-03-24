@@ -1,14 +1,15 @@
 package zadanie.zwierzyniec;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
+import java.util.Set;
 
 public class Trener {
 	private String imie;
 	private String nazwisko;
 	private String adres;
-	private List<Zwierze> trenowaneZwierzeta;
+	private List<Zwierze> trenowaneZwierzeta = new ArrayList<>();
 	private List<UzytkowanieSprzetu> uzyciaSprzetu = new ArrayList<>();
 
 	private static List<Trener> ekstensja = new ArrayList<>();
@@ -56,18 +57,19 @@ public class Trener {
 				iloscTrener = ilosc;
 			}
 		}
-		return trenerzy.get(0);
+		return trener;
 	}
 
-	
-	public static List<Trener> trenowaliZwierze(List<Trener> trenerzy, Zwierze zwierze, String gatunek) {
+	//- skasowawle parametr Zwierze, wystarczy sprawdzac tylko ga tunek
+	//- trenerow, ktorzy trenowali >1 wyswietlam wiecej niz raz- juz nie- SET
+	public static Set<Trener> trenowaliZwierze(List<Trener> trenerzy, String gatunek) {
 		if (trenerzy == null) {
 			throw new IllegalArgumentException("lista nie moze byc nullem");
 		}
-		List<Trener> trenowali = new ArrayList<>();
+		Set<Trener> trenowali = new HashSet<>();;
 		for (Trener t : trenerzy) {
 			for (Zwierze z : t.getTrenowaneZwierzeta()) {
-				if (z.equals(zwierze) && z.getGatunek().equals(gatunek)) {
+				if (z.getGatunek().equals(gatunek)) {
 					trenowali.add(t);
 				}
 			}
@@ -105,6 +107,9 @@ public class Trener {
 
 	public void setTrenowaneZwierzeta(List<Zwierze> trenowaneZwierzeta) {
 		this.trenowaneZwierzeta = trenowaneZwierzeta;
+		for(Zwierze z : trenowaneZwierzeta) {
+			z.setTrener(this);
+		}
 	}
 
 	public static List<Trener> getEkstensja() {
@@ -124,24 +129,24 @@ public class Trener {
 		return "Trener [imie=" + imie + ", nazwisko=" + nazwisko + "]";
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(adres, imie, nazwisko, trenowaneZwierzeta, uzyciaSprzetu);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Trener other = (Trener) obj;
-		return Objects.equals(adres, other.adres) && Objects.equals(imie, other.imie)
-				&& Objects.equals(nazwisko, other.nazwisko)
-				&& Objects.equals(trenowaneZwierzeta, other.trenowaneZwierzeta)
-				&& Objects.equals(uzyciaSprzetu, other.uzyciaSprzetu);
-	}
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(adres, imie, nazwisko, trenowaneZwierzeta, uzyciaSprzetu);
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Trener other = (Trener) obj;
+//		return Objects.equals(adres, other.adres) && Objects.equals(imie, other.imie)
+//				&& Objects.equals(nazwisko, other.nazwisko)
+//				&& Objects.equals(trenowaneZwierzeta, other.trenowaneZwierzeta)
+//				&& Objects.equals(uzyciaSprzetu, other.uzyciaSprzetu);
+//	}
 
 }

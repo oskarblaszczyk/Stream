@@ -24,9 +24,9 @@ public class Wychowawca extends Osoba {
 	}
 
 	private void setPensja() {
-		if (kwalifikacja == Kwalifikacje.tymczasowy) {
+		if (kwalifikacja == Kwalifikacje.TYMCZASOWY) {
 			this.pensja = 2500;
-		} else if (kwalifikacja == Kwalifikacje.kwalifikowany) {
+		} else if (kwalifikacja == Kwalifikacje.KWALIFIKOWANY) {
 			this.pensja = 3500;
 		}
 	}
@@ -34,7 +34,7 @@ public class Wychowawca extends Osoba {
 	public static List<Wychowawca> pensjaPowyzejKwalifikowany (double pensja) {
 		List<Wychowawca> pensjaPowyzej = new ArrayList<>();
 		for(Wychowawca w : kwalifikowaniWychowawcy()) {
-			if(w.getKwalifikacje().equals(Kwalifikacje.kwalifikowany) && w.getPensja() > pensja) {
+			if(w.getKwalifikacje().equals(Kwalifikacje.KWALIFIKOWANY) && w.getPensja() > pensja) {
 				pensjaPowyzej.add(w);
 			}
 		}
@@ -44,7 +44,7 @@ public class Wychowawca extends Osoba {
 	public static List<Wychowawca> kwalifikowaniWychowawcy() {
 		List<Wychowawca> kwalifikowani = new ArrayList<>();
 		for(Wychowawca w : ekstensja) {
-			if(w.getKwalifikacje().equals(Kwalifikacje.kwalifikowany)) {
+			if(w.getKwalifikacje().equals(Kwalifikacje.KWALIFIKOWANY)) {
 				kwalifikowani.add(w);
 			}
 		}
