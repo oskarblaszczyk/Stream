@@ -6,13 +6,11 @@ public class Osoba {
 	private String imie;
 	private String nazwisko;
 	private String pesel;
-	private String plec;
 
 	public Osoba(String imie, String nazwisko, String pesel) {
 		setImie(imie);
 		setNazwisko(nazwisko);
 		setPesel(pesel);
-		setPlec();
 	}
 
 	public String getImie() {
@@ -45,7 +43,6 @@ public class Osoba {
 		return pesel;
 	}
 
-	
 	public void setPesel(String pesel) {
 		Pattern pattern = Pattern.compile("\\d{11}");
 		if (pattern.matcher(pesel).matches()) {
@@ -55,23 +52,16 @@ public class Osoba {
 		}
 	}
 
-	public String getPlec() {
-		return plec;
-	}
-
-	public void setPlec() {
-		if (pesel.charAt(9) % 2 == 0) {
-			this.plec = "kobieta";
-		} else {
-			this.plec = "mezczyzna";
+	public String setPlec() {
+		if (Character.getNumericValue(pesel.charAt(9)) % 2 == 0) {
+			return "kobieta";
 		}
+		return "mezczyzna";
 	}
 
 	@Override
 	public String toString() {
-		return "Osoba [imie=" + imie + ", nazwisko=" + nazwisko + ", pesel=" + pesel + ", plec=" + plec + "]";
+		return imie + " " + nazwisko;
 	}
-	
-	
 
 }

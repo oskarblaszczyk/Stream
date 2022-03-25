@@ -1,2 +1,8 @@
 - dziedziczenie klas, klasa abstrakcyjna a ekstensja. 
 - nadpisywanie metod equals oraz hashCode. 
+- klasa abstract nadpisanie toString hashCode oraz equals co zrobic w rozszerzonych klasach?
+
+
+##
+- agregacja i kompozycja- przecwiczyc
+- chroniunit + metoda beetwen- przecwiczyc

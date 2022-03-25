@@ -1,16 +1,18 @@
 package zadanie.zwierzyniec;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pterodaktyl extends Zwierze {
 	private double rozpietoscSkrzydel;
 
-	//private static List<Pterodaktyl> ekstensja = new ArrayList<>();
+	private static List<Pterodaktyl> pterodaktyle = new ArrayList<>();
 
 	public Pterodaktyl(String nazwa, String gatunek, double rozpietoscSkrzydel) {
 		super(nazwa, gatunek);
 		this.rozpietoscSkrzydel = rozpietoscSkrzydel;
-		
-	//	ekstensja.add(this);
-		Zwierze.getEkstensja().add(this);
+
+		pterodaktyle.add(this);
 	}
 
 	public double getRozpietoscSkrzydel() {
@@ -21,8 +23,8 @@ public class Pterodaktyl extends Zwierze {
 		this.rozpietoscSkrzydel = rozpietoscSkrzydel;
 	}
 
-//	public static List<Pterodaktyl> getEkstensja() {
-//		return ekstensja;
-//	}
+	public static List<Pterodaktyl> getPterodaktyle() {
+		return pterodaktyle;
+	}
 
 }

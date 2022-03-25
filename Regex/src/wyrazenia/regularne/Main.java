@@ -121,13 +121,13 @@ public class Main {
 		 * 123\2A, 24B\3 czy 12\5, ale ju¿ numer abc\cba nie,
 		 */
 
-		Pattern pattern14 = Pattern.compile("\\d{2,3}[a-z]?\\d{1}[a-z]?");
-		System.out.println();
-		System.out.println(pattern14.matcher("123\2A").matches());
+		Pattern pattern14 = Pattern.compile("\\d+[A-Z]?\\\\\\d+[A-Z]?");
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!");
+		System.out.println(pattern14.matcher("123\\2A").matches());
 
 		// napisz pattern na miasto np Warszawa, Bielsko-Biala, Zielona Gora
 
-		Pattern pattern15 = Pattern.compile("[A-Z]{1}\\w{1,}(( |-)[A-Z]{1}\\w{1,})?");
+		Pattern pattern15 = Pattern.compile("[A-Z][a-z]+(( |-)[A-Z][a-z]+)?");
 		System.out.println("Warszawa: " + pattern15.matcher("Warszawa").matches());
 		System.out.println("Bielsko-Biala: " + pattern15.matcher("Bielsko-Biala").matches());
 		System.out.println("Zielona Gora: " + pattern15.matcher("Zielona Gora").matches());
@@ -160,7 +160,11 @@ public class Main {
 		
 		System.out.println();
 		
-		System.out.println(zamien(100, "PLN"));
+		System.out.println(zamien(100, "GBP"));
+		
+		String s = "7";
+		
+		System.out.println(s.charAt(0) + 1);
 
 	}
 

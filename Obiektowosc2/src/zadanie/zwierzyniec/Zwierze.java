@@ -16,6 +16,7 @@ public abstract class Zwierze {
 		super();
 		this.nazwa = nazwa;
 		this.gatunek = gatunek;
+		ekstensja.add(this);
 	}
 
 	public static List<Zwierze> nigdyNieTrenowane(List<Zwierze> zwierzeta) {

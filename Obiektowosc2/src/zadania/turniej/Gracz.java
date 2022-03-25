@@ -45,27 +45,27 @@ public class Gracz {
 	}
 	
 	
-	public static Gracz najwiecejMiejsc(List<Gracz> gracze, int zajeteMiejsce) {
-		if(gracze == null || gracze.isEmpty()) {
-			throw new IllegalArgumentException("Lista nie moze byc null ani pusta");
-		}
-		Gracz najlepszy = gracze.get(0);
-		int iloscTemp = 0;
-		for(Gracz g : gracze) {
-			int ilosc = 0;
-			for(g.getPunkty())
-		}
-	}
+//	public static Gracz najwiecejMiejsc(List<Gracz> gracze, int zajeteMiejsce) {
+//		if(gracze == null || gracze.isEmpty()) {
+//			throw new IllegalArgumentException("Lista nie moze byc null ani pusta");
+//		}
+//		Gracz najlepszy = gracze.get(0);
+//		int iloscTemp = 0;
+//		for(Gracz g : gracze) {
+//			int ilosc = 0;
+//			for(g.getPunkty())
+//		}
+//	}
 
 	public String getImie() {
 		return imie;
 	}
 
 	
-	public int zajeteMiejsce(Turniej turniej) {
-		
-		getPunkty().get(0).getTurniej().equals(turniej)
-	}
+//	public int zajeteMiejsce(Turniej turniej) {
+//		
+//		getPunkty().get(0).getTurniej().equals(turniej)
+//	}
 	
 	public void setImie(String imie) {
 		this.imie = imie;
