@@ -37,8 +37,8 @@ public class Osoba {
 		return zKolorem;
 	}
 
-	//* Napisz metodê która liczy ile jest osób z kolorem wlosow podanym jako parametr
-	public static List<Osoba> osobyKolorWlosow(List<Osoba> osoby, KolorOczu kolor) {
+	//* Napisz metodï¿½ ktï¿½ra liczy ile jest osï¿½b z kolorem wlosow podanym jako parametr
+	public static List<Osoba> osobyKolorWlosow(List<Osoba> osoby, KolorWlosow kolor) {
 		if (osoby == null) {
 			throw new IllegalArgumentException("nie moze byc null");
 		}
@@ -51,13 +51,13 @@ public class Osoba {
 		return zKolorem;
 	}
 
-	//* Napisz metodê która zwraca Osobe o najdluzszym nazwisku z oczami podanymi jako parametr
+	//* Napisz metodï¿½ ktï¿½ra zwraca Osobe o najdluzszym nazwisku z oczami podanymi jako parametr
 
 	public static Osoba najdluzszeNazwiskoKolorOczu(List<Osoba> osoby, KolorOczu kolor) {
 		if (osoby == null || osoby.isEmpty()) {
 			throw new IllegalArgumentException("nie null");
 		}
-		List<Osoba> zKolorem = new ArrayList<>(Osoba.osobyKolorWlosow(osoby, kolor));
+		List<Osoba> zKolorem = new ArrayList<>(Osoba.osobyKolorOczu(osoby, kolor));
 
 		Osoba najdluzsze = zKolorem.get(0);
 		for (Osoba o : zKolorem) {

@@ -83,7 +83,8 @@ public class Main {
 		System.out.println(Sprzet.naprawianyNRazy(Sprzet.getEkstensja(), 2));
 		
 		//-znajdz wszystkie pterodaktyle ktore nigdy nie mialy przypisanego trenera
-		System.out.println(Zwierze.nigdyNieTrenowane(Pterodaktyl.getPterodaktyle()));
+		//todo
+		//System.out.println(Zwierze.nigdyNieTrenowane(Pterodaktyl.getPterodaktyle()));
 		System.out.println();
 		
 		// Dodajemy wszystkie zwierzeta do ekstensji zwierze? 
