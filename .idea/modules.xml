@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Enum/Enum.iml" filepath="$PROJECT_DIR$/Enum/Enum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IteracjaDruga/IteracjaDruga.iml" filepath="$PROJECT_DIR$/IteracjaDruga/IteracjaDruga.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IteracjaDrugaZD/IteracjaDrugaZD.iml" filepath="$PROJECT_DIR$/IteracjaDrugaZD/IteracjaDrugaZD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IteracjaPierwsza/IteracjaPierwsza.iml" filepath="$PROJECT_DIR$/IteracjaPierwsza/IteracjaPierwsza.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Kolekcje/Kolekcje.iml" filepath="$PROJECT_DIR$/Kolekcje/Kolekcje.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Metody/Metody.iml" filepath="$PROJECT_DIR$/Metody/Metody.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Obiektowosc/Obiektowosc.iml" filepath="$PROJECT_DIR$/Obiektowosc/Obiektowosc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Obiektowosc2/Obiektowosc2.iml" filepath="$PROJECT_DIR$/Obiektowosc2/Obiektowosc2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Regex/Regex.iml" filepath="$PROJECT_DIR$/Regex/Regex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Test1/Test1.iml" filepath="$PROJECT_DIR$/Test1/Test1.iml" />
+    </modules>
+  </component>
+</project>

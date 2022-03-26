@@ -1,5 +1,7 @@
 package wyrazenia.regularne;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -160,28 +162,23 @@ public class Main {
 		
 		System.out.println();
 		
-		System.out.println(zamien(100, "GBP"));
+		//System.out.println(zamien(100, "GBP"));
 		
-		String s = "7";
-		
-		System.out.println(s.charAt(0) + 1);
+		System.out.println(zamien(100, "KRW"));
 
 	}
 
-	public static double zamien(int ilosc, String waluta) {
+	public static float zamien(int ilosc, String waluta) {
 		String kursy = "{\"rates\":{\"CAD\":1.5563,\"HKD\":9.1212,\"ISK\":162.6,\"PHP\":57.324,\"DKK\":7.4441,\"HUF\":350.68,\"CZK\":26.083,\"AUD\":1.6442,"
 				+ "\"RON\":4.8405,\"SEK\":10.363,\"IDR\":17383.99,\"INR\":88.198,\"BRL\":6.5908,\"RUB\":87.735,\"HRK\":7.5243,\"JPY\":124.53,\"THB\":37.161,"
 				+ "\"CHF\":1.0744,\"SGD\":1.6131,\"PLN\":4.3979,\"BGN\":1.9558,\"TRY\":8.5925,\"CNY\":8.1483,\"NOK\":10.5913,\"NZD\":1.8045,\"ZAR\":20.2977,"
 				+ "\"USD\":1.1769,\"MXN\":26.066,\"ILS\":4.0029,\"GBP\":0.89755,\"KRW\":1403.15,\"MYR\":4.9194},\"base\":\"EUR\",\"date\":\"2020-08-21\"}";
-		Pattern pattern = Pattern.compile(waluta + "\":\\d{1,4}.\\d{1,4}");
+		Pattern pattern = Pattern.compile("[A-Z]{3}\":\\d*.\\d*");
 		Matcher m = pattern.matcher(kursy);
-		System.out.println(m.find());
-		System.out.println(kursy.substring(m.start() + 5, m.end()));
-		double cena = Double.parseDouble(kursy.substring(m.start() + 5, m.end()));
-		System.out.println(cena);
-		
-		return ilosc * cena;
-		
+		Map<String, Float> mapaWalut = new HashMap<>();
+		while(m.find()){
+			mapaWalut.put(kursy.substring(m.start(), m.start()+3), Float.parseFloat(kursy.substring(m.start()+5,m.end())));
+		}
+		return ilosc * mapaWalut.get(waluta);
 	}
-
 }
