@@ -20,10 +20,15 @@ public class Main {
         Wycieczka w1 = new Wycieczka("Piramidy", "Egipt", 3500);
         Wycieczka w2 = new Wycieczka("Bieszczady", "Polska", 2150);
 
-        Wyjazd p1 = new Wyjazd(k1, w1, Arrays.asList(ListaDodatkow.NOCLEG, ListaDodatkow.PRZEWODNIK, ListaDodatkow.TRANSFER, ListaDodatkow.WYZYWIENIE));
-        Wyjazd p2 = new Wyjazd(k2, w2, Arrays.asList(ListaDodatkow.WYZYWIENIE, ListaDodatkow.NOCLEG));
+        Wyjazd p1 = new Wyjazd(k2, w1, Arrays.asList(ListaDodatkow.NOCLEG, ListaDodatkow.PRZEWODNIK, ListaDodatkow.TRANSFER, ListaDodatkow.WYZYWIENIE));
+        Wyjazd p2 = new Wyjazd(k1, w2, Arrays.asList(ListaDodatkow.WYZYWIENIE, ListaDodatkow.NOCLEG, ListaDodatkow.WYZYWIENIE));
 
 
-        System.out.println(Wyjazd.najdrozszyWyjazd2(Wyjazd.getEkstensja()));
+        System.out.println(Wyjazd.najdrozszyWyjazd(Wyjazd.getEkstensja()));
+        System.out.println(Klient.najwiecejWydalWyjazd(Klient.getEkstensja()));
+
+        System.out.println(Wyjazd.najdrozszeDodatki(Wyjazd.getEkstensja()));
+        System.out.println(Klient.najwiecejWydalDodatki(Klient.getEkstensja()));
+
     }
 }

@@ -19,7 +19,7 @@ public class Wyjazd {
         wycieczka.getWyjazdy().add(this);
     }
 
-    //2.974 sekundy
+    //2.974(1.950) sekundy
     public static Klient najdrozszyWyjazd(List<Wyjazd> wyjazdy) {
         if (wyjazdy == null || wyjazdy.isEmpty()) {
             throw new IllegalArgumentException("nie null i nie pusta");
@@ -36,7 +36,7 @@ public class Wyjazd {
         return n.getKlient();
     }
 
-    //3.489 sekundy przy liscie z dwoma wyjazdami
+    //3.489 (3.785) sekundy przy liscie z dwoma wyjazdami
     public static Klient najdrozszyWyjazd2(List<Wyjazd> wyjazdy) {
         if (wyjazdy == null || wyjazdy.isEmpty()) {
             throw new IllegalArgumentException("nie null i nie pusta");
