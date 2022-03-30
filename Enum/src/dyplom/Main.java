@@ -19,11 +19,20 @@ public class Main {
         Ocena o9 = new Ocena(ListaOcen.DOPUSZCZAJACY, ListaPrzedmiotow.FIZYKA, d2);
         Ocena o10 = new Ocena(ListaOcen.BARDZO_DOBRY, ListaPrzedmiotow.CHEMIA, d2);
 
+
         System.out.println(d1.sredniaOcena());
         System.out.println(d2.sredniaOcena());
         System.out.println(Dyplom.najwyzszaSrednia(Dyplom.getEkstensja()));
         System.out.println(Dyplom.najwyzszaSrednia2(Dyplom.getEkstensja()));
-
+        dodajOcene(ListaOcen.DOSTATECZNY, ListaPrzedmiotow.BIOLOGIA, d1);
+        dodajOcene(ListaOcen.DOSTATECZNY, ListaPrzedmiotow.BIOLOGIA, d1);
+        System.out.println(d1.getOceny());
+        System.out.println(Ocena.getEkstensja());
 
     }
+    public static void dodajOcene(ListaOcen ocena, ListaPrzedmiotow przedmiot, Dyplom dyplom){
+        String nazwa= "n1";
+        Ocena n1 = new Ocena(ocena, przedmiot, dyplom);
+    }
+
 }

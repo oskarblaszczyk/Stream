@@ -8,7 +8,7 @@ public class Ocena {
     private ListaPrzedmiotow przedmiot;
     private Dyplom dyplom;
 
-    private List<Ocena> ekstensja = new ArrayList<>();
+    private static List<Ocena> ekstensja = new ArrayList<>();
 
     public Ocena(ListaOcen ocena, ListaPrzedmiotow przedmiot, Dyplom dyplom) {
         this.ocena = ocena;
@@ -42,7 +42,7 @@ public class Ocena {
         this.dyplom = dyplom;
     }
 
-    public List<Ocena> getEkstensja() {
+    public static List<Ocena> getEkstensja() {
         return ekstensja;
     }
 
