@@ -1,6 +1,8 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class Storage {
     private String name;
@@ -36,13 +38,16 @@ public abstract class Storage {
 
 
     public void addWaterFrom(Storage storage, int amount) {
-        if (amount <= capacity - actualFill && amount <= actualFill) {
+        if (amount <= capacity - actualFill && amount <= storage.getActualFill()) {
             storage.drainWater(amount);
             addWater(amount);
+            System.out.println("przelano wode");
+        }else{
+            System.out.println("nie przelano wody");
         }
     }
 
-    public static Storage mostFilled(List<Storage> storages) {
+    public static Storage mostWater(List<Storage> storages) {
         if (storages == null || storages.isEmpty()) {
             throw new IllegalArgumentException("Nie moze byc null");
         }
@@ -57,9 +62,41 @@ public abstract class Storage {
         return storage;
     }
 
-    public boolean verivyState() {
+    public static Storage mostWater2(List<Storage> storages) {
+        Storage result = storages
+                .stream()
+                .max(Comparator.comparing(Storage::getActualFill))
+                .get();
+        return result;
+    }
 
-        return true;
+    public static Storage mostFilled(List<Storage> storages) {
+        Storage result = storages
+                .stream()
+                .min((s1, s2) -> (s1.actualFill * 100) / s1.getCapacity())// ja nie wiem co robie s1 ? s2?
+                .get();
+        return result;
+    }
+
+    public static List<Storage> allEmptyStorages(List<Storage> storages) {
+        List<Storage> result = storages
+                .stream()
+                .filter(storage -> storage.actualFill == 0)
+                .collect(Collectors.toList());
+
+        return result;
+    }
+
+    public boolean verivyState() {
+        int countOf = 0;
+        for (Event event : getEvents()) {
+            if(event.isSuccesfull() && event.getName().equals("addWater")){
+                countOf += event.getAmountOfWater();
+            }else if(event.isSuccesfull() && event.getName().equals("drainWater")){
+                countOf -= event.getAmountOfWater();
+            }
+        }
+        return (countOf == actualFill);
     }
 
     public String getName() {
