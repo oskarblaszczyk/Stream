@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="171551aa-e58b-460e-80cf-c4a0e1ec03fb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Enum/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DashboardRME/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Enum/src/dyplom/Dyplom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Enum/src/dyplom/Dyplom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Enum/src/dyplom/ListaOcen.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Enum/src/dyplom/Wartosc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Enum/src/dyplom/ListaPrzedmiotow.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Enum/src/dyplom/Przedmiot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Enum/src/dyplom/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Enum/src/dyplom/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Enum/src/dyplom/Ocena.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Enum/src/dyplom/Ocena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Enum/src/kalkulator/Operacje.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Enum/src/kalkulator/Operacje.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Enum/src/wycieczka/Klient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Enum/src/wycieczka/Klient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Enum/src/wycieczka/ListaDodatkow.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Enum/src/wycieczka/Dodatek.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Enum/src/wycieczka/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Enum/src/wycieczka/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Enum/src/wycieczka/Wycieczka.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Enum/src/wycieczka/Wycieczka.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Enum/src/wycieczka/Wyjazd.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Enum/src/wycieczka/Zakup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TestInsta/src/OverflowWater.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TestInsta/src/OverflowWater.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="29r0CoMw4e38tga2KZjB001Dko2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="171551aa-e58b-460e-80cf-c4a0e1ec03fb" name="Changes" comment="" />
+      <created>1653855771966</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653855771966</updated>
+    </task>
+    <servers />
+  </component>
+</project>
