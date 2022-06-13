@@ -4,13 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ocena {
-    private ListaOcen ocena;
-    private ListaPrzedmiotow przedmiot;
-    private Dyplom dyplom;
+    private final Wartosc ocena;
+    private final Przedmiot przedmiot;
+    private final Dyplom dyplom;
 
     private static List<Ocena> ekstensja = new ArrayList<>();
 
-    public Ocena(ListaOcen ocena, ListaPrzedmiotow przedmiot, Dyplom dyplom) {
+    public Ocena(Wartosc ocena, Przedmiot przedmiot, Dyplom dyplom) {
+        if (dyplom == null) {
+            throw new IllegalArgumentException("nie moze byc null");
+        }
         this.ocena = ocena;
         this.przedmiot = przedmiot;
         this.dyplom = dyplom;
@@ -18,29 +21,20 @@ public class Ocena {
         ekstensja.add(this);
     }
 
-    public ListaOcen getOcena() {
+    public Wartosc getOcena() {
         return ocena;
     }
 
-    public void setOcena(ListaOcen ocena) {
-        this.ocena = ocena;
-    }
 
-    public ListaPrzedmiotow getPrzedmiot() {
+    public Przedmiot getPrzedmiot() {
         return przedmiot;
     }
 
-    public void setPrzedmiot(ListaPrzedmiotow przedmiot) {
-        this.przedmiot = przedmiot;
-    }
 
     public Dyplom getDyplom() {
         return dyplom;
     }
 
-    public void setDyplom(Dyplom dyplom) {
-        this.dyplom = dyplom;
-    }
 
     public static List<Ocena> getEkstensja() {
         return ekstensja;

@@ -6,7 +6,7 @@ import java.util.List;
 public class Klient {
     private String imie;
     private String nazwisko;
-    private List<Wyjazd> wyjazdy = new ArrayList<>();
+    private List<Zakup> zakupy = new ArrayList<>();
     private static List<Klient> ekstensja = new ArrayList<>();
 
     public Klient(String imie, String nazwisko) {
@@ -15,51 +15,103 @@ public class Klient {
         ekstensja.add(this);
     }
 
+    public double kosztWycieczek() {
+        double suma = 0;
+        for (Zakup z : zakupy) {
+            suma += z.getWycieczka().getCena();
+        }
+        return suma;
+    }
 
-// Dwie metody. W kazdej robie to samo.
+    public double kosztDodatkow() {
+        double suma = 0;
+        for (Zakup z : zakupy) {
+            for (Dodatek d : z.getDodatki()) {
+                suma += d.getCena();
+            }
+        }
+        return suma;
+    }
 
-    //3.387 sekundy
-    public static Klient najwiecejWydalWyjazd(List<Klient> klienci) {
+    public double kosztZakupu() {
+        return kosztDodatkow() + kosztWycieczek();
+    }
+
+
+    // Znadz klienta który wydal najwiecej na dodatki do wycieczki nieuwzgledniajac tez ceny wycieczki
+    public static Klient najwiecejWydalWycieczki(List<Klient> klienci) {
         if (klienci == null || klienci.isEmpty()) {
-            throw new IllegalArgumentException("nie null i nie pusta");
+            throw new IllegalArgumentException("nie null");
         }
         Klient najwiecej = klienci.get(0);
-        double sumaTemp = 0;
         for (Klient k : klienci) {
-            for (Wyjazd w : k.getWyjazdy()) {
-                double temp = w.getWycieczka().getCena();
-                for (ListaDodatkow d : w.getDodatki()) {
-                    temp += d.getCena();
-                }
-                if (temp > sumaTemp) {
-                    najwiecej = k;
-                    sumaTemp = temp;
-                }
+            if (k.kosztWycieczek() > najwiecej.kosztWycieczek()) {
+                najwiecej = k;
             }
         }
         return najwiecej;
     }
 
-    public static Klient najwiecejWydalDodatki(List<Klient> klienci) {
+    //  Znadz klienta który wydal najwiecej na dodatki do wycieczki uwzgledniajac tez cene wycieczki
+    public static Klient najwiecejWydal(List<Klient> klienci) {
         if (klienci == null || klienci.isEmpty()) {
-            throw new IllegalArgumentException("nie null i nie pusta");
+            throw new IllegalArgumentException("nie null");
         }
         Klient najwiecej = klienci.get(0);
-        double sumaTemp = 0;
+
         for (Klient k : klienci) {
-            for (Wyjazd w : k.getWyjazdy()) {
-                double temp = 0;
-                for (ListaDodatkow d : w.getDodatki()) {
-                    temp += d.getCena();
-                }
-                if (temp > sumaTemp) {
-                    najwiecej = k;
-                    sumaTemp = temp;
-                }
+            if (k.kosztZakupu() > najwiecej.kosztZakupu()) {
+                najwiecej = k;
             }
         }
         return najwiecej;
     }
+
+//
+//// Dwie metody. W kazdej robie to samo.
+//
+//    //3.387 sekundy
+//    public static Klient najwiecejWydalWyjazd(List<Klient> klienci) {
+//        if (klienci == null || klienci.isEmpty()) {
+//            throw new IllegalArgumentException("nie null i nie pusta");
+//        }
+//        Klient najwiecej = klienci.get(0);
+//        double sumaTemp = 0;
+//        for (Klient k : klienci) {
+//            for (Zakup w : k.getWyjazdy()) {
+//                double temp = w.getWycieczka().getCena();
+//                for (Dodatek d : w.getDodatki()) {
+//                    temp += d.getCena();
+//                }
+//                if (temp > sumaTemp) {
+//                    najwiecej = k;
+//                    sumaTemp = temp;
+//                }
+//            }
+//        }
+//        return najwiecej;
+//    }
+//
+//    public static Klient najwiecejWydalDodatki(List<Klient> klienci) {
+//        if (klienci == null || klienci.isEmpty()) {
+//            throw new IllegalArgumentException("nie null i nie pusta");
+//        }
+//        Klient najwiecej = klienci.get(0);
+//        double sumaTemp = 0;
+//        for (Klient k : klienci) {
+//            for (Zakup w : k.getWyjazdy()) {
+//                double temp = 0;
+//                for (Dodatek d : w.getDodatki()) {
+//                    temp += d.getCena();
+//                }
+//                if (temp > sumaTemp) {
+//                    najwiecej = k;
+//                    sumaTemp = temp;
+//                }
+//            }
+//        }
+//        return najwiecej;
+//    }
 
     public String getImie() {
         return imie;
@@ -77,13 +129,6 @@ public class Klient {
         this.nazwisko = nazwisko;
     }
 
-    public List<Wyjazd> getWyjazdy() {
-        return wyjazdy;
-    }
-
-    public void setWyjazdy(List<Wyjazd> wyjazdy) {
-        this.wyjazdy = wyjazdy;
-    }
 
     public static List<Klient> getEkstensja() {
         return ekstensja;

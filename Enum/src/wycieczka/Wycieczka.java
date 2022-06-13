@@ -7,8 +7,8 @@ public class Wycieczka {
     private String nazwa;
     private String kraj;
     private double cena;
-    private List<ListaDodatkow> dodatki = new ArrayList<>();
-    private List<Wyjazd> wyjazdy = new ArrayList<>();
+    private List<Dodatek> dodatki = new ArrayList<>();
+    private List<Zakup> wyjazdy = new ArrayList<>();
     private List<Wycieczka> ekstensja = new ArrayList<>();
 
     public Wycieczka(String nazwa, String kraj, double cena) {
@@ -42,19 +42,19 @@ public class Wycieczka {
         this.cena = cena;
     }
 
-    public List<ListaDodatkow> getDodatki() {
+    public List<Dodatek> getDodatki() {
         return dodatki;
     }
 
-    public void setDodatki(List<ListaDodatkow> dodatki) {
+    public void setDodatki(List<Dodatek> dodatki) {
         this.dodatki = dodatki;
     }
 
-    public List<Wyjazd> getWyjazdy() {
+    public List<Zakup> getWyjazdy() {
         return wyjazdy;
     }
 
-    public void setWyjazdy(List<Wyjazd> wyjazdy) {
+    public void setWyjazdy(List<Zakup> wyjazdy) {
         this.wyjazdy = wyjazdy;
     }
 

@@ -8,7 +8,6 @@
 
 package wycieczka;
 
-import java.util.ArrayList;
 import java.util.*;
 
 public class Main {
@@ -20,15 +19,15 @@ public class Main {
         Wycieczka w1 = new Wycieczka("Piramidy", "Egipt", 3500);
         Wycieczka w2 = new Wycieczka("Bieszczady", "Polska", 2150);
 
-        Wyjazd p1 = new Wyjazd(k2, w1, Arrays.asList(ListaDodatkow.NOCLEG, ListaDodatkow.PRZEWODNIK, ListaDodatkow.TRANSFER, ListaDodatkow.WYZYWIENIE));
-        Wyjazd p2 = new Wyjazd(k1, w2, Arrays.asList(ListaDodatkow.WYZYWIENIE, ListaDodatkow.NOCLEG, ListaDodatkow.WYZYWIENIE));
+        Zakup p1 = new Zakup(k2, w1, Arrays.asList(Dodatek.NOCLEG, Dodatek.PRZEWODNIK, Dodatek.TRANSFER, Dodatek.WYZYWIENIE));
+        Zakup p2 = new Zakup(k1, w2, Arrays.asList(Dodatek.WYZYWIENIE, Dodatek.NOCLEG, Dodatek.WYZYWIENIE));
 
 
-        System.out.println(Wyjazd.najdrozszyWyjazd(Wyjazd.getEkstensja()));
-        System.out.println(Klient.najwiecejWydalWyjazd(Klient.getEkstensja()));
-
-        System.out.println(Wyjazd.najdrozszeDodatki(Wyjazd.getEkstensja()));
-        System.out.println(Klient.najwiecejWydalDodatki(Klient.getEkstensja()));
+//        System.out.println(Zakup.(Zakup.getEkstensja()));
+//        System.out.println(Klient.najwiecejWydalWyjazd(Klient.getEkstensja()));
+//
+//        System.out.println(Zakup.najdrozszeDodatki(Zakup.getEkstensja()));
+//        System.out.println(Klient.najwiecejWydalDodatki(Klient.getEkstensja()));
 
     }
 }

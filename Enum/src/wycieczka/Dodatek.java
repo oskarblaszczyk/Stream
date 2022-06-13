@@ -1,6 +1,6 @@
 package wycieczka;
 
-public enum ListaDodatkow {
+public enum Dodatek {
     PRZEWODNIK(500 ),
     UBEZPIECZENIE(350),
     WYZYWIENIE(1500),
@@ -9,7 +9,7 @@ public enum ListaDodatkow {
 
     private final int cena;
 
-    ListaDodatkow(int cena) {
+    Dodatek(int cena) {
         this.cena = cena;
     }
 

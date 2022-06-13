@@ -21,38 +21,35 @@ public class Dyplom {
         ekstensja.add(this);
     }
 
-    public static Dyplom najwyzszaSrednia(List<Dyplom> dyplomy) {
-        if (dyplomy == null || dyplomy.isEmpty()) {
-            throw new IllegalArgumentException("nie null i pusty");
-        }
-        Dyplom najlepszy = dyplomy.get(0);
-        double sredniaTemp = 0;
-        for (Dyplom d : dyplomy) {
-            double sumaOcen = 0;
-            for (Ocena o : d.getOceny()) {
-                sumaOcen += o.getOcena().getWartosc();
-            }
-
-            double srednia = sumaOcen / d.getOceny().size();
-            if (srednia > sredniaTemp) {
-                najlepszy = d;
-                sredniaTemp = srednia;
-            }
-        }
-        return najlepszy;
-    }
+//    public static Dyplom najwyzszaSrednia(List<Dyplom> dyplomy) {
+//        if (dyplomy == null || dyplomy.isEmpty()) {
+//            throw new IllegalArgumentException("nie null i pusty");
+//        }
+//        Dyplom najlepszy = dyplomy.get(0);
+//        double sredniaTemp = 0;
+//        for (Dyplom d : dyplomy) {
+//            double sumaOcen = 0;
+//            for (Ocena o : d.getOceny()) {
+//                sumaOcen += o.getOcena().getWartosc();
+//            }
+//
+//            double srednia = sumaOcen / d.getOceny().size();
+//            if (srednia > sredniaTemp) {
+//                najlepszy = d;
+//                sredniaTemp = srednia;
+//            }
+//        }
+//        return najlepszy;
+//    }
 
     public static Dyplom najwyzszaSrednia2(List<Dyplom> dyplomy) {
         if (dyplomy == null || dyplomy.isEmpty()) {
             throw new IllegalArgumentException("nie null i pusty");
         }
         Dyplom najlepszy = dyplomy.get(0);
-        double sredniaTemp = najlepszy.sredniaOcena();
         for (Dyplom d : dyplomy) {
-            double srednia = d.sredniaOcena();
-            if (srednia > sredniaTemp) {
+            if (d.sredniaOcena() > najlepszy.sredniaOcena()) {
                 najlepszy = d;
-                sredniaTemp = srednia;
             }
         }
         return najlepszy;
