@@ -1,6 +1,7 @@
 package streamy;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.*;
 
@@ -139,25 +140,130 @@ public class Main {
     // napisz metode która policzy srednia listy intow
     // orElse() jesli wartosc jest obecna to ja zwraca a jesli nie to 0.0
 
-    // napisz metode która zwraca najmniejsza liczbe, jesli jej nie ma to rzuc wyjatkiem NoMinElementBro
+    public static double sredniaInt(List<Integer> lista){
+        return Optional.ofNullable(lista)
+                .orElse(Collections.emptyList())
+                .stream()
+                .filter(Objects::nonNull)
+            //    .collect(Collectors.averagingDouble(i -> i));
+                .mapToDouble(i -> i)
+                .average()
+                .orElse(0.0);
+    }
 
+
+    // napisz metode która zwraca najmniejsza liczbe, jesli jej nie ma to rzuc wyjatkiem NoMinElementBro
+    public static int najmniejszaLiczba(List<Integer> lista){
+        return Optional.ofNullable(lista)
+                .orElse(Collections.emptyList())
+                .stream()
+                .filter(Objects::nonNull)
+                .min(Comparator.comparingInt(Integer::intValue))
+                .orElseThrow(NoMinElementBro::new);
+
+    }
     // napisz metode która zwraca najwieksza liczbe
+
+    public static int najwiekszaLiczba(List<Integer> lista){
+        return Optional.ofNullable(lista)
+                .orElse(Collections.emptyList())
+                .stream()
+                .filter(Objects::nonNull)
+                .max(Comparator.comparing(Integer::intValue))
+                .orElse(0);
+    }
 
     // napisz metode która znajduje najdluzszego Stringa z listy
 
+    public static String najdluzszyString(List<String> lista){
+        return Optional.ofNullable(lista)
+                .orElse(Collections.emptyList())
+                .stream()
+                .filter(Objects::nonNull)
+                .max(Comparator.comparingInt(String::length))
+                .orElseThrow();
+    }
+
+
     // napisz metode która znajduje wszystkie imiona męskie
+
+    public static List<String> imionaZenskie(List<String> lista){
+        return Optional.ofNullable(lista)
+                .orElse(Collections.emptyList())
+                .stream()
+                .filter(Objects::nonNull)
+                .filter(a -> a.endsWith("a"))
+                .toList();
+    }
+
 
     // napisz metode która znajduje wszystkie stringi które posiadaja podany char
 
+    public static List<String> zawierajaZnak(List<String> lista, char znak){
+        return Optional.ofNullable(lista)
+                .orElse(Collections.emptyList())
+                .stream()
+                .filter(Objects::nonNull)
+                .filter(a -> a.contains(String.valueOf(znak)))
+                .toList();
+    }
+
+
     // napisz metode ktora zwraca wszystkie wspolne elementy z dwoch list
+
+    public static List<Integer> wspolneElementy(List<Integer> lista1, List<Integer> lista2){
+        return Optional.ofNullable(lista1)
+                .orElse(Collections.emptyList())
+                .stream()
+                .filter(Objects::nonNull)
+                .filter(lista2::contains)
+                .toList();
+    }
 
     // zwroc top 5 liczb z listy
 
+    public static List<Integer> topN(List<Integer> lista, int n){
+        if(n > lista.size()){
+            throw new RuntimeException("N wieksze od listy");
+        }
+        return Optional.ofNullable(lista)
+                .orElse(Collections.emptyList())
+                .stream()
+                .filter(Objects::nonNull)
+                .sorted(Collections.reverseOrder())
+                .limit(n)
+                .toList();
+    }
+
+
     // policz ile jakich liter jest w slowach na liscie stringow
 
+    public static Map<String, Long> policzLitery(List<String> lista){
+        return Optional.ofNullable(lista)
+                .orElse(Collections.emptyList())
+                .stream()
+                .filter(Objects::nonNull)
+                .map(s -> s.split(""))
+                .flatMap(Arrays::stream)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+    }
     // napisz metode która przyjmuje jako prametr Liste list intow a jako wynik
     // zwraca wszystkie inty zawarte w strutkurze
 
+    public static List<Integer> intyLista(List<List<Integer>> listaList){
+        return Optional.ofNullable(listaList)
+                .orElse(Collections.emptyList())
+                .stream()
+                .filter(Objects::nonNull)
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
+    }
+
+    // stworz klase produkt nazwa string, waga double, cena bigdecimal, int ocena
+
+
     // dowiedz sie jaka jest roznica miedzy orElse() i orElseGetem(), sprawdz czasy wykonan tych dwoch metod dla jakiegos konkrentegou przypadku
     // jakie wnioski?
+
+    //orElse jak uzywamy parametru orElseGet jak uzywamy metody. W przypadku uzycia orElse i metody to metoda zostanie wywolana nawet jak nie zajdzie taka potrzeba
 }
